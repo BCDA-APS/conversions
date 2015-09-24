@@ -8,10 +8,16 @@
 
 # requires installation of git-svn package
 # for users.txt, see: https://github.com/nirvdrum/svn2git#authors
-git svn clone https://subversion.xray.aps.anl.gov/synApps/$1 --authors-file=users.txt --no-metadata -s $1
+#Allow SYNAPPSSVNURL to be a local mirror on disk
+if test -z "$SYNAPPSSVNURL"; then
+  SYNAPPSSVNURL=https://subversion.xray.aps.anl.gov/synApps
+fi
+git svn clone $SYNAPPSSVNURL/$1 --authors-file=users.txt --no-metadata -s $1
 
 #export GITHUB_TARGET_ORG=epics-modules
-export GITHUB_TARGET_ORG=BCDA-APS
+if test -z "$GITHUB_TARGET_ORG"; then
+  export GITHUB_TARGET_ORG=BCDA-APS
+fi
 
 cd $1
 cp -Rf .git/refs/remotes/tags/* .git/refs/tags/
@@ -44,6 +50,18 @@ git commit -m "initial commit after move from APS SVN"
 # this method is not working either:
 #curl -u 'prjemian' https://api.github.com/user/repos -d '{"name":"$1","description":"synApps $1 module"}'
 # ----------------------------------------------------------------------
+
+#https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
+echo '#Which files need CRLF handling' >.gitattributes
+echo '* text=auto'      >>.gitattributes
+echo '*.sh eol=lf'    >>.gitattributes
+echo '*.bat eol=crlf' >>.gitattributes
+echo '*.cmd -text' >>.gitattributes
+rm .git/index     # Remove the index to force Git to
+git reset         # re-scan the working directory
+git add -u
+git add .gitattributes
+git commit -m "Introduce end-of-line normalization"
 
 git remote add origin git@github.com:$GITHUB_TARGET_ORG/$1.git
 
