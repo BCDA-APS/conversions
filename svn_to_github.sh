@@ -14,9 +14,9 @@ if test -z "$SYNAPPSSVNURL"; then
 fi
 git svn clone $SYNAPPSSVNURL/$1 --authors-file=users.txt --no-metadata -s $1
 
-#export GITHUB_TARGET_ORG=epics-modules
 if test -z "$GITHUB_TARGET_ORG"; then
-  export GITHUB_TARGET_ORG=BCDA-APS
+  export GITHUB_TARGET_ORG=epics-modules
+  #export GITHUB_TARGET_ORG=BCDA-APS
 fi
 
 cd $1
@@ -29,7 +29,10 @@ cp ../template.gitignore ./.gitignore
 
 touch README.md
 echo "# $1"		                         2>&1 >  README.md
-echo "synApps module: $1"			 2>&1 >> README.md
+echo "APS BCDA synApps module: $1"		 2>&1 >> README.md
+echo "" 					 2>&1 >> README.md
+echo "For more information, see" 		 2>&1 >> README.md
+echo "   http://www.aps.anl.gov/bcda/synApps" 	 2>&1 >> README.md
 echo "" 					 2>&1 >> README.md
 echo "converted from APS SVN repository: `date`" 2>&1 >> README.md
 cp README.md ./.git/description
