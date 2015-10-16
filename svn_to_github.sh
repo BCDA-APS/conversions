@@ -26,6 +26,7 @@ rm -Rf .git/refs/remotes/trunk
 cp -Rf .git/refs/remotes/* .git/refs/heads/
 rm -Rf .git/refs/remotes/
 cp ../template.gitignore ./.gitignore
+cp ../LICENSE ./
 
 touch README.md
 echo "# $1"		                         2>&1 >  README.md
@@ -35,10 +36,15 @@ echo "For more information, see" 		 2>&1 >> README.md
 echo "   http://www.aps.anl.gov/bcda/synApps" 	 2>&1 >> README.md
 echo "" 					 2>&1 >> README.md
 echo "converted from APS SVN repository: `date`" 2>&1 >> README.md
+echo "" 					 2>&1 >> README.md
+echo "Regarding the license of tagged versions prior to synApps 4-5," 2>&1 >> README.md
+echo "refer to http://www.aps.anl.gov/bcda/synApps/license.php"       2>&1 >> README.md
+
 cp README.md ./.git/description
 
 git add README.md
 git add .gitignore
+git add LICENSE
 git commit -m "initial commit after move from APS SVN"
 
 # ----------------------------------------------------------------------
