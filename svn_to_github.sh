@@ -16,6 +16,7 @@ git svn clone $SYNAPPSSVNURL/$1 --authors-file=users.txt --no-metadata -s $1
 
 if test -z "$GITHUB_TARGET_ORG"; then
   export GITHUB_TARGET_ORG=epics-modules
+  #export GITHUB_TARGET_ORG=EPICS-synApps
   #export GITHUB_TARGET_ORG=BCDA-APS
 fi
 
