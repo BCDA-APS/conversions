@@ -1,5 +1,5 @@
-bcda = bcda <prjemian@users.noreply.github.com>
-cvs2svn = cvs2svn <prjemian@users.noreply.github.com>
+bcda = bcda <mooney@aps.anl.gov>
+cvs2svn = cvs2svn <rsluiter@users.noreply.github.com>
 dkline = David Kline <dkline@aps.anl.gov>
 dohnarms = dohnarms <dohnarms@anl.gov>
 gebhardt = Jeff Gebhardt <gebhardt@users.noreply.github.com>
@@ -7,6 +7,7 @@ goetze = Kurt Goetze <kurtgoetze@users.noreply.github.com>
 hammonds = JPHammonds <JPHammonds@anl.gov>
 jeden = Jens Eden <jens.eden@ptb.de>
 jemian = Pete Jemian <prjemian@gmail.com>
+jfm = John Maclean <jfm@users.noreply.github.com>
 jkirchman = jkirchman <jkirchman@aps.anl.gov>
 klang = keenanlang <klang@aps.anl.gov>
 kpetersn = kmpeters <kmpeters@anl.gov>
