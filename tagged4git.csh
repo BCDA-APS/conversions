@@ -18,6 +18,7 @@ setenv APS_ITEMS "${APS_ITEMS} optics"
 setenv APS_ITEMS "${APS_ITEMS} softGlue"
 setenv APS_ITEMS "${APS_ITEMS} sscan"
 setenv APS_ITEMS "${APS_ITEMS} stream"
+setenv APS_ITEMS "${APS_ITEMS} support"
 setenv APS_ITEMS "${APS_ITEMS} xxx"
 
 setenv GIT_DRIVERS "${GIT_DRIVERS} alive"
